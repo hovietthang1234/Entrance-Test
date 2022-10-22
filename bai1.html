@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <label for="">A</label>
+      <input class="a" type="text" />
+    </div>
+    <div>
+      <label for="">B</label>
+      <input class="b" type="text" />
+    </div>
+
+    <div><button class="submit">Submit</button></div>
+    <div><span>result</span>: <span class="result"></span></div>
+  </body>
+
+  <script>
+    const aInput = document.querySelector(".a");
+    const bInput = document.querySelector(".b");
+    const button = document.querySelector(".submit");
+    const result = document.querySelector(".result");
+
+    const isPrimaryNumber = (number) => {
+      for (let index = 2; index < number; index++) {
+        if (number % index === 0) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    button.addEventListener("click", () => {
+      const inputAValue = parseInt(aInput.value);
+      const inputBValue = parseInt(bInput.value);
+
+      for (let index = inputAValue; index <= inputBValue; index++) {
+        if (isPrimaryNumber(index)) {
+          console.log(index);
+
+          result.textContent += index + " ";
+        }
+      }
+    });
+  </script>
+</html>
